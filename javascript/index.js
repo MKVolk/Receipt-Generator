@@ -61,18 +61,21 @@ const addItem = () => {
 
     itPrice.id = 'it_price-' + currentIndex;
     itPrice.type = 'number';
+    itPrice.style = 'max-width: 3em';
     itPrice.onchange = function (){
         calcExtPrice(currentIndex.toString());
     };
 
     itQty.id = 'it_qty-' + currentIndex;
     itQty.type = 'number';
+    itQty.style = 'max-width: 3em';
     itQty.onchange = function (){
         calcExtPrice(currentIndex.toString());
     };
 
     itExtPrice.id = 'it_ext-price-' + currentIndex;
     itExtPrice.type = 'number';
+    itExtPrice.style = "max-width: 3em";
 
     itDel.id = 'it_del-' + currentIndex;
     itDel.textContent = 'del';
