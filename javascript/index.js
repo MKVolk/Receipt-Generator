@@ -18,9 +18,10 @@ const calcExtPrice = (iIndex) => {
     const itQty = document.getElementById('it_qty-' + index);
     const itExtPrice = document.getElementById('it_ext-price-' + index);
 
-    const price = parseFloat(itPrice.textContent);
-    const quantity = parseInt(itQty.textContent);
+    const price = parseFloat(itPrice.value);
+    const quantity = parseInt(itQty.value);
 
+    console.log('price: ' + price + ', quantity: ' + quantity);
     total = price * quantity;
     itExtPrice.textContent = total.toString();
     console.log('Price for item ' + index.toString() + ' is:' + total.toString()); //DEBUG
