@@ -46,6 +46,7 @@ const downloadHandler = (fileName,content,extension) => {
 const addItem = () => {
     const formItemsElement = document.querySelector('formItems');
     const currentIndex = Math.floor(itemCounter).toString;
+    console.log(currentIndex);
 
     var item = document.createElement('item');
     var itName = document.createElement('input');
