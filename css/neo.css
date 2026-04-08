@@ -35,6 +35,15 @@ button {
     border: none;
     padding: 8px 16px;
     transition: 0.2s ease;
+    width:fit-content;
+}
+
+label{
+    min-width: 10em;
+}
+
+input{
+    min-width: 10em;
 }
 
 button:hover {
