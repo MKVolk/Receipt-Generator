@@ -14,7 +14,7 @@ const calcExtPrice = (iIndex) => {
     const index = iIndex;
     var total = 0;
 
-    const itPrice = document.getElementById('it_name-' + index);
+    const itPrice = document.getElementById('it_price-' + index);
     const itQty = document.getElementById('it_qty-' + index);
     const itExtPrice = document.getElementById('it_ext-price-' + index);
 
@@ -23,7 +23,7 @@ const calcExtPrice = (iIndex) => {
 
     console.log('price: ' + price + ', quantity: ' + quantity); //DEBUG
     total = price * quantity;
-    itExtPrice.textContent = total.toString();
+    itExtPrice.value = total.toString();
     console.log('Price for item ' + index.toString() + ' is:' + total.toString()); //DEBUG
 };
 
@@ -66,7 +66,7 @@ const addItem = () => {
 
     itQty.id = 'it_qty-' + currentIndex;
     itQty.type = 'number';
-    itPrice.onchange = function (){
+    itQty.onchange = function (){
         calcExtPrice(currentIndex.toString());
     };
 
