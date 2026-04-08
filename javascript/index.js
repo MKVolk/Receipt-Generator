@@ -23,7 +23,7 @@ const calcExtPrice = (iIndex) => {
 
     total = price * quantity;
     itExtPrice.textContent = total.toString;
-    console.log('Price for item ' + index.toString + ' is:' + total); //DEBUG
+    console.log('Price for item ' + index.toString() + ' is:' + total); //DEBUG
 };
 
 const downloadHandler = (fileName,content,extension) => {
@@ -65,6 +65,9 @@ const addItem = () => {
 
     itQty.id = 'it_qty-' + currentIndex;
     itQty.type = 'number';
+    itPrice.onchange = function (){
+        calcExtPrice(currentIndex);
+    };
 
     itExtPrice.id = 'it_ext-price-' + currentIndex;
     itExtPrice.type = 'number';
