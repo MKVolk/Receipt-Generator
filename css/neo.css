@@ -151,7 +151,6 @@ item{
     flex-direction: column;
     padding: 20px;
     margin: 15px;
-    justify-content: space-between;
 }
 
 .entry img {
