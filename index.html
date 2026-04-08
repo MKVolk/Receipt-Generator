@@ -6,7 +6,8 @@
     </head>
     <body>
         <h1>Receipt Generator</h1>
-        <form>
+
+            <h3>Data for this receipt</h3>
             <label for="tax_rate">Tax Rate: </label>
             <input id="tax_rate" type="number"> <br>
 
@@ -25,26 +26,34 @@
             
             <h3>Items</h3>
             <p>Item name Price Qty TotalPrice</p>
-            <formItems>
-                <input name="it_name-0" type="text">
-                <input name="it_price-0" type="number">
-                <input name="it_qty-0" type="number">
-                <input name="it_ext-price-0" type="number"> <br>
+            
+            <formItems><!--
+                <item id="item-0">
+                    <input name="it_name-0" type="text">
+                    <input name="it_price-0" type="number">
+                    <input name="it_qty-0" type="number">
+                    <input name="it_ext-price-0" type="number">
+                <item>-->
             </formItems>
+            
 
             <button onclick="addItem()">Add item</button>
-
+            <br>
+            
+            <div>
             <label for="sub_total">Sub Total: </label>
-            <input id="sub_total" type="number">
+            <input id="sub_total" type="number"> <br>
 
             <label for="sales_tax">Sale Tax: </label>
-            <input id="sales_tax" type="number">
+            <input id="sales_tax" type="number"> <br>
 
             <label for="total">Total: </label>
-            <input id="total" type="number">
-        </form>
-        <button onClick="downloadHandler('file','Hello World','srec')">
-            Download Text File
+            <input id="total" type="number"> <br>
+            </div>
+
+        <button onclick="fillRandom()">Random</button>
+        <button onclick="downloadHandler('file','Hello World','srec')">
+            Download Receipt
         </button>
         <script src="javascript/index.js"></script>
     </body>

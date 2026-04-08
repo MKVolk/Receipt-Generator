@@ -124,6 +124,11 @@ nav button {
     box-shadow: 5px 5px 10px 0px #c5c8ce, -5px -5px 9px #ffffff;
 }
 
+item{
+    display:flex;
+    flex-direction: row;
+}
+
 /* Content */
 .contentGrid{
     display: grid;
