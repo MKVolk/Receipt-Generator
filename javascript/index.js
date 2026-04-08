@@ -85,6 +85,7 @@ const addItem = () => {
     item.appendChild(itPrice);
     item.appendChild(itQty);
     item.appendChild(itExtPrice);
+    item.appendChild(itDel);
 
     formItemsElement.appendChild(item);
     itemCounter ++;
@@ -94,6 +95,6 @@ const addItem = () => {
 const delItem = (iIndex) => {
     const index = iIndex;
     const item = document.getElementById('item-' + index);
-    
+
     item.remove();
 };
