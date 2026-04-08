@@ -59,7 +59,9 @@ const addItem = () => {
 
     itPrice.id = 'it_price-' + currentIndex;
     itPrice.type = 'number';
-    itPrice.onchange = 'calcExtPrice('+ currentIndex +')';
+    itPrice.onchange = function (){
+        calcExtPrice(currentIndex);
+    };
 
     itQty.id = 'it_qty-' + currentIndex;
     itQty.type = 'number';
@@ -75,6 +77,6 @@ const addItem = () => {
 
     formItemsElement.appendChild(item);
     itemCounter ++;
-    
+
     console.log('addItem() executed');
 }
