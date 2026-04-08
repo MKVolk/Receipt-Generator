@@ -5,7 +5,40 @@
         <link rel="stylesheet"  href="css/neo.css">
     </head>
     <body>
-        <button onClick="downloadHandler('file','Hello World','rec')">
+        <h1>Receipt Generator</h1>
+        <form>
+            <label for="tax_rate">Tax Rate: </label>
+            <input id="tax_rate" type="number">
+
+            <label for="address" >Address</label>
+            <input id="address" type="text"> <br>
+            
+            <label for="receipt_n">Receipt Number</label>
+            <input id="receipt_n" type="number"> <br>
+            
+            <label for="date">Date</label>
+            <input id="date" type="date"> <br>
+
+            <label for="clerk_name">Clerk Name</label>
+            <input id="clerk_name" name="clerk_name" type="text"> <br>
+            
+            <h3>Items</h3>
+            <p>Item name Price Qty TotalPrice</p>
+            <input type="text">
+            <input type="number">
+            <input type="number">
+            <input type="number"> <br>
+
+            <label for="sub_total">Sub Total: </label>
+            <input id="sub_total" type="number">
+
+            <label for="sales_tax">Sale Tax: </label>
+            <input id="sales_tax" type="number">
+
+            <label for="total">Total: </label>
+            <input id="total" type="number">
+        </form>
+        <button onClick="downloadHandler('file','Hello World','srec')">
             Download Text File
         </button>
         <script src="javascript/index.js"></script>
