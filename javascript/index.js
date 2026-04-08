@@ -58,6 +58,7 @@ const addItem = () => {
 
     itName.id = 'it_name-' + currentIndex;
     itName.type = "text";
+    itName.style = "max-width: 10em";
 
     itPrice.id = 'it_price-' + currentIndex;
     itPrice.type = 'number';

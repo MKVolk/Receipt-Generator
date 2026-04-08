@@ -42,10 +42,6 @@ label{
     min-width: 10em;
 }
 
-input{
-    min-width: 10em;
-}
-
 button:hover {
     box-shadow: 
         inset 6px 6px 12px #c5c8ce,
@@ -151,6 +147,7 @@ item{
     flex-direction: column;
     padding: 20px;
     margin: 15px;
+    width:fit-content;
 }
 
 .entry img {

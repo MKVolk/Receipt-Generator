@@ -8,8 +8,8 @@
     <body>
         <h1>Receipt Generator</h1>
         <a href="https://github.com/MKVolk/Receipt-Generator">Go to Repository</a>
-        
-        <div class="contentFlex">
+
+        <div class="contentFlexWrap">
         <div class="entry">
         <h3>Data for this receipt</h3>
         <div class="contentFlex">
@@ -41,16 +41,7 @@
         </div>
             
         <div class="entry">
-        <h3>Items</h3>
-        <p>Item name |Price |Qty |TotalPrice</p>
-            
-        <formItems>
-        </formItems>
-
-        <button onclick="addItem()">Add item</button><br>
-        </div>
-            
-        <div class="entry">
+            <h3>Total Calculations</h3>
             <label for="sub_total">Sub Total: </label>
             <input id="sub_total" type="number"> <br>
 
@@ -59,6 +50,16 @@
 
             <label for="total">Total: </label>
             <input id="total" type="number"> <br>
+        </div>
+
+        <div class="entry">
+        <h3>Items</h3>
+        <p>Item name |Price |Qty |TotalPrice</p>
+            
+        <formItems>
+        </formItems>
+
+        <button onclick="addItem()">Add item</button><br>
         </div>
 
         </div>
