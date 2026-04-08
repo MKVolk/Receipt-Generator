@@ -21,7 +21,7 @@ const calcExtPrice = (iIndex) => {
     const price = parseFloat(itPrice.value);
     const quantity = parseInt(itQty.value);
 
-    console.log('price: ' + price + ', quantity: ' + quantity);
+    console.log('price: ' + price + ', quantity: ' + quantity); //DEBUG
     total = price * quantity;
     itExtPrice.textContent = total.toString();
     console.log('Price for item ' + index.toString() + ' is:' + total.toString()); //DEBUG
