@@ -74,5 +74,7 @@ const addItem = () => {
     item.appendChild(itExtPrice);
 
     formItemsElement.appendChild(item);
+    itemCounter ++;
+    
     console.log('addItem() executed');
 }
