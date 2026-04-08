@@ -40,16 +40,17 @@
         </div>
         </div>
             
-        <div>
+        <div class="entry">
         <h3>Items</h3>
         <p>Item name |Price |Qty |TotalPrice</p>
             
         <formItems>
         </formItems>
-            
+
         <button onclick="addItem()">Add item</button><br>
+        </div>
             
-        <div cass="entry">
+        <div class="entry">
             <label for="sub_total">Sub Total: </label>
             <input id="sub_total" type="number"> <br>
 
@@ -59,10 +60,12 @@
             <label for="total">Total: </label>
             <input id="total" type="number"> <br>
         </div>
+
+        <div>
+            <button onclick="fillRandom()">Random</button>
+            <button onclick="downloadHandler('file','Hello World','srec')">Download Receipt</button>
         </div>
 
-        <button onclick="fillRandom()">Random</button>
-        <button onclick="downloadHandler('file','Hello World','srec')">Download Receipt</button>
         </div>
         
         <script src="javascript/index.js"></script>
