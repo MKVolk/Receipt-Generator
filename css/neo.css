@@ -1,0 +1,264 @@
+@font-face {
+  font-family: 'montserrat';
+  src: url('../fonts/Montserrat-VariableFont_wght.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'yarndings12';
+  src: url('../fonts/Yarndings12-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'bitcount';
+  src: url('../fonts/BitcountSingle-VariableFont_CRSV,ELSH,ELXP,slnt,wght.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+html{
+    font-family: montserrat, Helvetica, sans-serif;
+}
+
+body {
+    font-family: montserrat, ubuntu, Helvetica, sans-serif;
+    color: #4a4a4a;
+    background-color: #eaeaea;
+    margin: 0;
+}
+
+main{
+    padding-bottom: 5em;
+}
+
+button, .entry, footer{
+    background: #eaeaea;
+    border-radius: 12px;
+    box-shadow: 
+        8px 8px 16px #c5c8ce,
+        -8px -8px 16px #ffffff;
+}
+
+header{
+    background: #eaeaea;
+    box-shadow: 8px 8px 16px #c5c8ce;
+    border-radius: 12px;
+    margin-bottom: 1em;
+}
+
+button {
+    font-family: inherit;
+    color: #4a4a4a;
+    border: none;
+    padding: 8px 16px;
+    transition: 0.2s ease;
+}
+
+button:hover {
+    box-shadow: 
+        inset 6px 6px 12px #c5c8ce,
+        inset -6px -6px 12px #ffffff;
+}
+
+button:active {
+    box-shadow: 
+        inset 3px 3px 6px #c5c8ce,
+        inset -3px -3px 6px #ffffff;
+}
+
+
+a {
+    color: #4c6ef5;
+    text-decoration: none;
+}
+a:visited {
+    color: #845ef7;
+}
+a:hover {
+    text-shadow: 0 0 6px rgba(0,0,0,0.15);
+}
+
+
+header {
+    display:flex;
+    justify-content: left;
+    flex-wrap:wrap;
+    font-size: 1rem;
+    padding: 1rem;
+}
+
+
+#pokediv {
+    display: flex;
+    justify-content:space-between;
+    align-items:center;
+    transition: 0.5s
+}
+#pokediv > h1{ /*Header Title Speciffic styling*/
+    font-family: montserrat, ubuntu, Helvetica, sans-serif;
+    font-size: 1.6em;
+}
+
+.menu {
+    border: none;
+    box-shadow: none;
+    height:fit-content;
+    font-size: 2em;
+    display:none;
+}
+
+nav{
+    align-items:center;
+    display:flex;
+    justify-content: flex-end;
+    flex-grow:1;
+    padding: 1rem;
+}
+
+nav button {
+    margin: 0 5px;
+    font-size: 1em;
+    box-shadow: 5px 5px 10px 0px #c5c8ce, -5px -5px 9px #ffffff;
+}
+
+/* Content */
+.contentGrid{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    width: 100%;
+    box-sizing: border-box;
+}
+.contentGrid > * {
+    min-width: 0;
+    overflow: hidden;
+}
+.contentFlex{
+    display: flex;
+    flex-direction: column;
+}
+.contentFlexWrap{
+    display:flex; 
+    flex-direction: row;
+    justify-content:center; 
+    flex-wrap:wrap;
+}
+
+.entry {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    margin: 15px;
+    justify-content: space-between;
+}
+
+.entry img {
+    max-width: 100%;
+    max-height: 30rem;
+    align-self: center;
+    border-radius: 12px;
+}
+
+
+.entry .introtitle{
+    display:flex;
+    flex-direction: column;
+}
+
+tag {
+    background-color: #808080;
+    font-size: 9pt;
+    padding: 0.3em;
+    margin: 0.2em;
+    border-radius: 0.3em;
+    color: #fff;
+}
+
+/* Footer */
+footer {
+    padding:10px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+.footer {
+    display: flex;
+    flex-direction:row;
+    justify-content:left;
+}
+
+#fttext {
+    width:fit-content;
+    font-family: yarndings12, montserrat, sans-serif;
+}
+
+#stylesheets {
+    display:flex;
+    flex-direction: row;
+    justify-content:flex-end;
+    flex-grow: 10;
+    padding-right: 10px;
+}
+
+.stylechanger {
+    font-family: 'yarndings12', sans-serif;
+    font-size: 1em;
+    margin: 0 5px;
+    padding: 0.3em;
+    box-shadow: 4px 4px 8px #c5c8ce,
+    -4px -4px 8px #ffffff;
+}
+
+#navBar {
+    overflow-y: hidden;
+}
+
+.userInput{
+    background-color:#12c1c9;
+}
+
+/* Mobile */
+@media screen and (max-width: 770px){
+    header{
+        flex-direction: column;
+    }
+
+    nav{
+        flex-direction: column;
+        padding: 0;
+        position: absolute;
+        top: 5.5em;
+        overflow-y: hidden;
+        transition: 0.5s;
+        height: 0;     
+    }
+
+    nav button{
+        width: 90vw;
+        border: none;
+        box-shadow: none;
+        border-bottom: solid;
+        border-radius: 0;
+        border-bottom-color: #ccc;
+    }
+
+    #menuOpen  { display:inline; }
+    #menuClose { display:none; }
+}
+
+/* Desktop */
+@media screen and (min-width: 771px){
+    #menuOpen  { display:none; }
+    #menuClose { display:none; }
+
+    #pokediv{
+        padding-bottom: 0px;
+    }
+
+    .menu{
+        display:none;
+    }
+}
