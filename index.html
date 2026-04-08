@@ -6,61 +6,61 @@
         <link rel="stylesheet"  href="css/neo.css">
     </head>
     <body>
+        <div class="contentFlex">
         <h1>Receipt Generator</h1>
         <a href="https://github.com/MKVolk/Receipt-Generator">Go to Repository</a>
 
-            <h3>Data for this receipt</h3>
-            <div class="contentFlex">
-                <div class="contentFlexWrapStart" >
+        <h3>Data for this receipt</h3>
+        <div class="contentFlex">
+            <div class="contentFlexWrapStart" >
                 <label for="tax_rate">Tax Rate: </label>
                 <input id="tax_rate" type="number"> 
-                </div>
+            </div>
 
-                <div class="contentFlexWrapStart">
+            <div class="contentFlexWrapStart">
                 <label for="address" >Address</label>
                 <input id="address" type="text"> 
-                </div>
+            </div>
 
-                <div class="contentFlexWrapStart">
+            <div class="contentFlexWrapStart">
                 <label for="receipt_n">Receipt Number</label>
                 <input id="receipt_n" type="number"> 
-                </div>
+            </div>
 
-                <div class="contentFlexWrapStart">
+            <div class="contentFlexWrapStart">
                 <label for="date">Date</label>
                 <input id="date" type="date"> 
-                </div>
+            </div>
 
-                <div class="contentFlexWrapStart">
+            <div class="contentFlexWrapStart">
                 <label for="clerk_name">Clerk Name</label>
                 <input id="clerk_name" name="clerk_name" type="text"> 
-                </div>
             </div>
+        </div>
             
-            <h3>Items</h3>
-            <p>Item name Price Qty TotalPrice</p>
+        <h3>Items</h3>
+        <p>Item name Price Qty TotalPrice</p>
             
-            <formItems>
-            </formItems>
+        <formItems>
+        </formItems>
             
-            <button onclick="addItem()">Add item</button>
-            <br>
+        <button onclick="addItem()">Add item</button><br>
             
-            <div>
-            <label for="sub_total">Sub Total: </label>
-            <input id="sub_total" type="number"> <br>
+        <div>
+        <label for="sub_total">Sub Total: </label>
+        <input id="sub_total" type="number"> <br>
 
-            <label for="sales_tax">Sale Tax: </label>
-            <input id="sales_tax" type="number"> <br>
+        <label for="sales_tax">Sale Tax: </label>
+        <input id="sales_tax" type="number"> <br>
 
-            <label for="total">Total: </label>
-            <input id="total" type="number"> <br>
-            </div>
+        <label for="total">Total: </label>
+        <input id="total" type="number"> <br>
+        </div>
 
         <button onclick="fillRandom()">Random</button>
-        <button onclick="downloadHandler('file','Hello World','srec')">
-            Download Receipt
-        </button>
+        <button onclick="downloadHandler('file','Hello World','srec')">Download Receipt</button>
+        </div>
+        
         <script src="javascript/index.js"></script>
     </body>
 </html>
