@@ -54,6 +54,7 @@ const addItem = () => {
     var itPrice = document.createElement('input');
     var itQty = document.createElement('input');
     var itExtPrice = document.createElement('input');
+    var itDel = document.createElement('button');
 
     itName.id = 'it_name-' + currentIndex;
     itName.type = "text";
@@ -73,6 +74,12 @@ const addItem = () => {
     itExtPrice.id = 'it_ext-price-' + currentIndex;
     itExtPrice.type = 'number';
 
+    itDel.id = 'it_del-' + currentIndex;
+    itDel.textContent = 'del';
+    itDel.onclick = function () {
+        delItem(currentIndex.toString());
+    };
+
     item.id = 'item-' + currentIndex;
     item.appendChild(itName);
     item.appendChild(itPrice);
@@ -84,3 +91,9 @@ const addItem = () => {
 
     console.log('addItem() executed');
 }
+const delItem = (iIndex) => {
+    const index = iIndex;
+    const item = document.getElementById('item-' + index);
+    
+    item.remove();
+};
