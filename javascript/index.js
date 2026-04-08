@@ -14,3 +14,9 @@ const downloadHandler = (fileName,content,extension) => {
     element.click();
     document.body.removeChild(element);
   };
+
+  const addItem = () => {
+    const formItemsElement = document.querySelector('formItems');
+
+
+  }

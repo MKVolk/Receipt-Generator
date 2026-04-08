@@ -8,7 +8,7 @@
         <h1>Receipt Generator</h1>
         <form>
             <label for="tax_rate">Tax Rate: </label>
-            <input id="tax_rate" type="number">
+            <input id="tax_rate" type="number"> <br>
 
             <label for="address" >Address</label>
             <input id="address" type="text"> <br>
@@ -22,12 +22,17 @@
             <label for="clerk_name">Clerk Name</label>
             <input id="clerk_name" name="clerk_name" type="text"> <br>
             
+            
             <h3>Items</h3>
             <p>Item name Price Qty TotalPrice</p>
-            <input type="text">
-            <input type="number">
-            <input type="number">
-            <input type="number"> <br>
+            <formItems>
+                <input name="it_name-0" type="text">
+                <input name="it_price-0" type="number">
+                <input name="it_qty-0" type="number">
+                <input name="it_ext-price-0" type="number"> <br>
+            </formItems>
+
+            <button onclick="addItem()">Add item</button>
 
             <label for="sub_total">Sub Total: </label>
             <input id="sub_total" type="number">
