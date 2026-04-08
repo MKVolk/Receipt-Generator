@@ -10,6 +10,22 @@ const fillRandom = () => {
     console.log("form filled with random data");
 };
 
+const calcExtPrice = (iIndex) => {
+    const index = iIndex;
+    var total = 0;
+
+    const itPrice = document.getElementById('it_name-' + index);
+    const itQty = document.getElementById('it_qty-' + index);
+    const itExtPrice = document.getElementById('it_ext-price-' + index);
+
+    const price = parseFloat(itPrice.textContent);
+    const quantity = parseInt(itQty.textContent);
+
+    total = price * quantity;
+    itExtPrice.textContent = total.toString;
+    console.log('Price for item ' + index.toString + ' is:' + total); //DEBUG
+};
+
 const downloadHandler = (fileName,content,extension) => {
     const text = content ;
     const element = document.createElement('a');
@@ -27,7 +43,7 @@ const downloadHandler = (fileName,content,extension) => {
     console.log("Receipt Download"); //DEBUG
   };
 
-  const addItem = () => {
+const addItem = () => {
     const formItemsElement = document.querySelector('formItems');
     const currentIndex = Math.floor(itemCounter).toString;
 
@@ -42,6 +58,7 @@ const downloadHandler = (fileName,content,extension) => {
 
     itPrice.id = 'it_price-' + currentIndex;
     itPrice.type = 'number';
+    itPrice.onchange = 'calcExtPrice('+ currentIndex +')';
 
     itQty.id = 'it_qty-' + currentIndex;
     itQty.type = 'number';
@@ -57,4 +74,4 @@ const downloadHandler = (fileName,content,extension) => {
 
     formItemsElement.appendChild(item);
 
-  }
+}
