@@ -130,6 +130,12 @@ item{
     justify-content:center; 
     flex-wrap:wrap;
 }
+.contentFlexWrapStart{
+    display:flex; 
+    flex-direction: row;
+    justify-content:flex-start; 
+    flex-wrap:wrap;
+}
 
 .entry {
     display: flex;
