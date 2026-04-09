@@ -175,18 +175,28 @@ const calcExtPrice = (iIndex) => {
 // FILE GENERATION FUNCTIONS and OBJECT
 
 class ReceiptObj {
+    constructor(phone, store, date, subtotal, tip, tax){
+        this.phone = phone;
+        this.store = store;
+        this.date = date;
+        this.subTotal = subtotal;
+        this.tip = tip;
+        this.tax = tax;
+        this.total = subtotal + tip + tax;
+    }
 
 }
 
 class ReceiptItem {
-    constructor(name, uPrice, qty, totalPrice){
+    constructor(name, uPrice, qty){
         this.name = name;
         this.uPrice = uPrice;
         this.qty = qty;
-        this.totalPrice = totalPrice;
+        this.totalPrice = uPrice * qty;
     }
 }
 
+//calls generationHandler and displays its return into 'lang_box'
 const generateReceipt = () => {
     //Generate text
     const genLang = generationHandler();
@@ -195,21 +205,67 @@ const generateReceipt = () => {
     langBox.textContent = genLang;
 };
 
+
 const downloadFile = () => {
     const fileName = 'Receipt-' + receiptCounter.toString();
     const fileExtension = 'srec';
-    var content = '';
 
-    //Fetch and Encode data into textBox
+    //Fetch data from lang_box into content
+    const content = document.getElementById('lang_box').textContent;
 
     //Download File    
     downloadHandler(fileName,content, fileExtension);
 };
 
+// Gets data from the forms, creates a REceiptObj, converts it to text and returns it
 const generationHandler = () => {
-    //Fetch data into Object
-    //Encode data into text and return it
-    var text = '';
+    let text = '';
+
+    // HEADER DATA
+    const phone = document.getElementById('custom_phone')?.value || '';
+    const store = document.getElementById('store_name')?.value || '';
+    const date = document.getElementById('date')?.value || '';
+
+    const subtotal = parseFloat(document.getElementById('subtotal')?.textContent || '0');
+    const tax = parseFloat(document.getElementById('sales_tax')?.textContent || '0');
+    const total = parseFloat(document.getElementById('total')?.textContent || '0');
+
+    const tip = 0.00; // no tip field provided, defaulting
+
+    // START RECEIPT
+    text += `RECEIPT {\n`;
+    text += `  PHONE: "${phone}"\n`;
+    text += `  STORE: "${store}"\n`;
+    text += `  DATE: "${date}"\n\n`;
+
+    // ITEMS
+    for (let i = 0; i < itemCounter; i++) {
+        const nameEl = document.getElementById('it_name-' + i);
+        const priceEl = document.getElementById('it_price-' + i);
+        const qtyEl = document.getElementById('it_qty-' + i);
+
+        if (!nameEl || !priceEl || !qtyEl) continue;
+
+        const name = nameEl.value || '';
+        const price = parseFloat(priceEl.value || '0').toFixed(2);
+        const qty = parseInt(qtyEl.value || '0');
+
+        //Skip
+        if (name === '' && qty === 0) continue;
+
+        text += `  ITEM {\n`;
+        text += `    NAME: "${name}"\n`;
+        text += `    QTY: ${qty}\n`;
+        text += `    PRICE: ${price}\n`;
+        text += `  }\n\n`;
+    }
+
+    // totals
+    text += `  SUBTOTAL: ${subtotal.toFixed(2)}\n`;
+    text += `  TAX: ${tax.toFixed(2)}\n`;
+    text += `  TIP: ${tip.toFixed(2)}\n`;
+    text += `  TOTAL: ${total.toFixed(2)}\n`;
+    text += `}`;
 
     return text;
 };
