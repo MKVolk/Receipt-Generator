@@ -187,21 +187,34 @@ class ReceiptItem {
     }
 }
 
-const downloadHandler = () => {
+const generateReceipt = () => {
+    //Generate text
+    const genLang = generationHandler();
+    //Display text
+    const langBox = document.getElementById('lang_box');
+    langBox.textContent = genLang;
+};
+
+const downloadFile = () => {
     const fileName = 'Receipt-' + receiptCounter.toString();
     const fileExtension = 'srec';
     var content = '';
 
-
-    //Fetch data into Object
-
-    //Encode data into file
+    //Fetch and Encode data into textBox
 
     //Download File    
-    downloadFile(fileName,content, fileExtension);
+    downloadHandler(fileName,content, fileExtension);
 };
 
-const downloadFile = (fileName,content,extension) => {
+const generationHandler = () => {
+    //Fetch data into Object
+    //Encode data into text and return it
+    var text = '';
+
+    return text;
+};
+
+const downloadHandler = (fileName,content,extension) => {
     const text = content ;
     const element = document.createElement('a');
     const mimeType = 'application/octect-stream';
