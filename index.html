@@ -15,7 +15,7 @@
         </header>
 
         <div class="contentFlexWrapStart">
-        <div class="entry">
+        <div class="entry" onload="setData()">
         <h3>Data for this receipt</h3>
         <div class="contentFlex">
             <div class="contentFlexWrapStart" >
@@ -64,7 +64,9 @@
         <formItems>
         </formItems>
         <br>
-        <button onclick="addItem()">Add item</button><br>
+        <button onclick="addItem()">Add item</button>
+        <button onclick="clear()">Clear</button>
+        <br>
         </div>
 
         </div>

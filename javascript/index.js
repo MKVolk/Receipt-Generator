@@ -1,8 +1,21 @@
 var receiptCounter = 0;
 var itemCounter = 0;
 
-const clear = () => {
+const setData = () => {
+    const dateInput = document.getElementById('date');
+    const today = new Date().toISOString().split('T')[0];
+    dateInput.value = today;
 
+    const receiptNumber = document.getElementById('receipt_n');
+    receiptNumber.value = receiptCounter;
+    receiptCounter ++;
+};
+
+const clear = () => {
+    for(let i =0; i < itemCounter; i++){
+        var item = document.getElementById('item-' + i.toString());
+        item.remove();
+    }
 };
 
 const fillRandom = () => {
@@ -24,7 +37,42 @@ const calcExtPrice = (iIndex) => {
     console.log('price: ' + price + ', quantity: ' + quantity); //DEBUG
     total = price * quantity;
     itExtPrice.value = total.toString();
+
+
     console.log('Price for item ' + index.toString() + ' is:' + total.toString()); //DEBUG
+};
+
+const calcSubTotal = () => {
+    var sum = 0;
+    const field = document.getElementById('sub_total');
+
+    for(let i =0; i < itemCounter; i++){
+        var item = document.getElementById('it_ext-price-' + i.toString());
+        sum = sum + item;
+    }
+
+    field.value = sum;
+
+    calcSaleTax();
+};
+
+const calcSaleTax = () =>{
+    const field = document.getElementById('sales_tax');
+    const taxRate = document.getElementById('tax_rate').value;
+    const subTotal = document.getElementById('sub_total').value;
+
+    field.value = taxRate * subTotal;
+
+    calcTotal();
+};
+
+const calcTotal = () => {
+    const field = document.getElementById('total');
+    const salesTax = document.getElementById('sales_tax').value;
+    const subTotal = document.getElementById('sub_total').value;
+
+    field.value = salesTax + subTotal;
+
 };
 
 const downloadHandler = (fileName,content,extension) => {
