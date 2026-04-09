@@ -14,8 +14,10 @@ const setData = () => {
 const clear = () => {
     for(let i =0; i < itemCounter; i++){
         var item = document.getElementById('item-' + i.toString());
+        console.log('Item: ' + 'item-' + i.toString() + ' cleared');
         item.remove();
     }
+    console.log('All Items Cleared');
 };
 
 const fillRandom = () => {
@@ -38,6 +40,7 @@ const calcExtPrice = (iIndex) => {
     total = price * quantity;
     itExtPrice.value = total.toString();
 
+    calcSubTotal();
 
     console.log('Price for item ' + index.toString() + ' is:' + total.toString()); //DEBUG
 };
@@ -73,6 +76,7 @@ const calcTotal = () => {
 
     field.value = salesTax + subTotal;
 
+    console.log('Calculations finished!')
 };
 
 const downloadHandler = (fileName,content,extension) => {
