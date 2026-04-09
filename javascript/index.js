@@ -17,8 +17,8 @@ const clearItems = () => {
         var item = document.getElementById('item-' + i.toString());
         if(item){
             item.remove();
+            console.log('Item: ' + 'item-' + i.toString() + ' cleared'); //DEBUG
         }
-        console.log('Item: ' + 'item-' + i.toString() + ' cleared'); //DEBUG
     }
     console.log('All Items Cleared'); //DEBUG
 };
@@ -53,31 +53,42 @@ const calcSubTotal = () => {
     const field = document.getElementById('sub_total');
 
     for(let i =0; i < itemCounter; i++){
-        var item = document.getElementById('it_ext-price-' + i.toString());
-        sum = sum + item;
+        const item = document.getElementById('it_ext-price-' + i);
+
+        if(item && item.value){
+            const itemValue = parseFloat(item.value);
+
+            if(!isNaN(itemValue)){
+                sum += itemValue;
+            }
+        }
     }
 
-    field.value = sum;
+    field.value = sum.toFixed(2);
 
     calcSaleTax();
 };
 
 const calcSaleTax = () =>{
     const field = document.getElementById('sales_tax');
-    const taxRate = document.getElementById('tax_rate').value;
-    const subTotal = document.getElementById('sub_total').value;
+    const taxRate = document.getElementById('tax_rate').value || 0;
+    const subTotal = document.getElementById('sub_total').value || 0;
 
-    field.value = taxRate * subTotal;
+    const taxAmount = subTotal * (taxRate / 100);
+
+    field.value = taxAmount.toFixed(2);
 
     calcTotal();
 };
 
 const calcTotal = () => {
     const field = document.getElementById('total');
-    const salesTax = document.getElementById('sales_tax').value;
-    const subTotal = document.getElementById('sub_total').value;
+    const salesTax = document.getElementById('sales_tax').value || 0;
+    const subTotal = document.getElementById('sub_total').value || 0;
 
-    field.value = salesTax + subTotal;
+    const total = salesTax + subTotal;
+
+    field.value = total.toFixed(2);
 
     console.log('Calculations finished!')
 };
