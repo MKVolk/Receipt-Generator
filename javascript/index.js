@@ -70,6 +70,7 @@ const addItem = () => {
     itQty.id = 'it_qty-' + currentIndex;
     itQty.type = 'number';
     itQty.style = 'max-width: 3em';
+    itQty.value = 1;
     itQty.onchange = function (){
         calcExtPrice(currentIndex.toString());
     };
@@ -77,9 +78,10 @@ const addItem = () => {
     itExtPrice.id = 'it_ext-price-' + currentIndex;
     itExtPrice.type = 'number';
     itExtPrice.style = "max-width: 3em";
+    itExtPrice.readOnly = true;
 
     itDel.id = 'it_del-' + currentIndex;
-    itDel.textContent = 'del';
+    itDel.textContent = ' x ';
     itDel.onclick = function () {
         delItem(currentIndex.toString());
     };
