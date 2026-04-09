@@ -9,15 +9,16 @@ const setData = () => {
     const receiptNumber = document.getElementById('receipt_n');
     receiptNumber.value = receiptCounter;
     receiptCounter ++;
+    console.log('Date and number set');
 };
 
 const clear = () => {
     for(let i =0; i < itemCounter; i++){
         var item = document.getElementById('item-' + i.toString());
-        console.log('Item: ' + 'item-' + i.toString() + ' cleared');
+        console.log('Item: ' + 'item-' + i.toString() + ' cleared'); //DEBUG
         item.remove();
     }
-    console.log('All Items Cleared');
+    console.log('All Items Cleared'); //DEBUG
 };
 
 const fillRandom = () => {
