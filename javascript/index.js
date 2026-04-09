@@ -12,7 +12,7 @@ const setData = () => {
     console.log('Date and number set');
 };
 
-const clear = () => {
+const clearItems = () => {
     for(let i =0; i < itemCounter; i++){
         var item = document.getElementById('item-' + i.toString());
         console.log('Item: ' + 'item-' + i.toString() + ' cleared'); //DEBUG
