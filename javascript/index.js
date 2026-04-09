@@ -82,6 +82,7 @@ const addItem = () => {
 
     itDel.id = 'it_del-' + currentIndex;
     itDel.textContent = ' x ';
+    itDel.style = "background-color: #ffb3ce;";
     itDel.onclick = function () {
         delItem(currentIndex.toString());
     };
