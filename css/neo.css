@@ -114,6 +114,11 @@ item{
     flex-direction: row;
 }
 
+input{
+    border-radius: 5px;
+    border-style: none;
+}
+
 /* Content */
 .contentGrid{
     display: grid;
