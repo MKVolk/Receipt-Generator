@@ -1,6 +1,8 @@
 var receiptCounter = 0;
 var itemCounter = 0;
 
+// STARTUP
+/** Fills the fields that can be automatically filled with changing information*/
 const setData = () => {
     const dateInput = document.getElementById('date');
     const today = new Date().toISOString().split('T')[0];
@@ -12,46 +14,8 @@ const setData = () => {
     console.log('Date and number set');
 };
 
-const clearItems = () => {
-    for(let i =0; i < itemCounter; i++){
-        var item = document.getElementById('item-' + i.toString());
-        if(item){
-            item.remove();
-            console.log('Item: ' + 'item-' + i.toString() + ' cleared'); //DEBUG
-        }
-    }
-    calcSubTotal();
-    console.log('All Items Cleared'); //DEBUG
-};
 
-const fillRandom = () => {
-
-
-    calcSubTotal();
-    console.log("form filled with random data"); //DEBUG
-};
-
-const calcExtPrice = (iIndex) => {
-    const index = iIndex;
-    var total = 0;
-
-    const itPrice = document.getElementById('it_price-' + index);
-    const itQty = document.getElementById('it_qty-' + index);
-    const itExtPrice = document.getElementById('it_ext-price-' + index);
-
-    const price = parseFloat(itPrice.value);
-    const quantity = parseInt(itQty.value);
-
-    console.log('price: ' + price + ', quantity: ' + quantity); //DEBUG
-    total = price * quantity;
-    itExtPrice.value = total.toString();
-
-    calcSubTotal();
-
-    console.log('Price for item ' + index.toString() + ' is:' + total.toString()); //DEBUG
-};
-
-/** TOTAL CALCULATIONS */
+// TOTAL CALCULATIONS |3 chained functions: calcSubTotal() -> calcSaleTax() -> calcTotal|
 const calcSubTotal = () => {
     var sum = 0;
     const field = document.getElementById('sub_total');
@@ -99,23 +63,7 @@ const calcTotal = () => {
 };
 
 
-const downloadHandler = (fileName,content,extension) => {
-    const text = content ;
-    const element = document.createElement('a');
-    const mimeType = 'application/octect-stream';
-    var type = extension;
-
-    const file = new Blob([text], {type: mimeType});
-
-    element.href = URL.createObjectURL(file);
-    element.download = fileName + '.' + type;
-    document.body.appendChild(element);
-    element.click();
-    document.body.removeChild(element);
-
-    console.log("Receipt Download"); //DEBUG
-  };
-
+// ITEMS FUNCTIONS
 const addItem = () => {
     const formItemsElement = document.querySelector('formItems');
     const currentIndex = Math.floor(itemCounter).toString();
@@ -171,6 +119,7 @@ const addItem = () => {
 
     console.log('addItem() executed');
 }
+
 const delItem = (iIndex) => {
     const index = iIndex;
     const item = document.getElementById('item-' + index);
@@ -178,4 +127,64 @@ const delItem = (iIndex) => {
     item.remove();
 
     calcSubTotal();
+};
+
+const clearItems = () => {
+    for(let i =0; i < itemCounter; i++){
+        var item = document.getElementById('item-' + i.toString());
+        if(item){
+            item.remove();
+            console.log('Item: ' + 'item-' + i.toString() + ' cleared'); //DEBUG
+        }
+    }
+    calcSubTotal();
+    console.log('All Items Cleared'); //DEBUG
+};
+
+const fillRandom = () => {
+
+
+    calcSubTotal();
+    console.log("form filled with random data"); //DEBUG
+};
+
+
+// ITEM CALCULATIONS
+const calcExtPrice = (iIndex) => {
+    const index = iIndex;
+    var total = 0;
+
+    const itPrice = document.getElementById('it_price-' + index);
+    const itQty = document.getElementById('it_qty-' + index);
+    const itExtPrice = document.getElementById('it_ext-price-' + index);
+
+    const price = parseFloat(itPrice.value);
+    const quantity = parseInt(itQty.value);
+
+    console.log('price: ' + price + ', quantity: ' + quantity); //DEBUG
+    total = price * quantity;
+    itExtPrice.value = total.toString();
+
+    calcSubTotal();
+
+    console.log('Price for item ' + index.toString() + ' is:' + total.toString()); //DEBUG
+};
+
+
+// FILE GENERATION FUNCTIONS
+const downloadHandler = (fileName,content,extension) => {
+    const text = content ;
+    const element = document.createElement('a');
+    const mimeType = 'application/octect-stream';
+    var type = extension;
+
+    const file = new Blob([text], {type: mimeType});
+
+    element.href = URL.createObjectURL(file);
+    element.download = fileName + '.' + type;
+    document.body.appendChild(element);
+    element.click();
+    document.body.removeChild(element);
+
+    console.log("Receipt Download"); //DEBUG
 };
