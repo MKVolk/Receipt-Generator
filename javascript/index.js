@@ -14,6 +14,7 @@ const setData = () => {
     console.log('Date and number set');
 };
 
+window.onload = function() { setData(); };
 
 // TOTAL CALCULATIONS |3 chained functions: calcSubTotal() -> calcSaleTax() -> calcTotal|
 const calcSubTotal = () => {
