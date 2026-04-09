@@ -20,12 +20,15 @@ const clearItems = () => {
             console.log('Item: ' + 'item-' + i.toString() + ' cleared'); //DEBUG
         }
     }
+    calcSubTotal();
     console.log('All Items Cleared'); //DEBUG
 };
 
 const fillRandom = () => {
 
-    console.log("form filled with random data");
+
+    calcSubTotal();
+    console.log("form filled with random data"); //DEBUG
 };
 
 const calcExtPrice = (iIndex) => {
@@ -48,6 +51,7 @@ const calcExtPrice = (iIndex) => {
     console.log('Price for item ' + index.toString() + ' is:' + total.toString()); //DEBUG
 };
 
+/** TOTAL CALCULATIONS */
 const calcSubTotal = () => {
     var sum = 0;
     const field = document.getElementById('sub_total');
@@ -93,6 +97,7 @@ const calcTotal = () => {
 
     console.log('Calculations finished!')
 };
+
 
 const downloadHandler = (fileName,content,extension) => {
     const text = content ;
@@ -171,4 +176,6 @@ const delItem = (iIndex) => {
     const item = document.getElementById('item-' + index);
 
     item.remove();
+
+    calcSubTotal();
 };
