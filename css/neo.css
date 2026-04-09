@@ -221,6 +221,11 @@ footer {
     background-color:#12c1c9;
 }
 
+#ft {
+    display: flex;
+    justify-content: space-between;
+}
+
 /* Mobile */
 @media screen and (max-width: 770px){
     header{
