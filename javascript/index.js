@@ -172,8 +172,36 @@ const calcExtPrice = (iIndex) => {
 };
 
 
-// FILE GENERATION FUNCTIONS
-const downloadHandler = (fileName,content,extension) => {
+// FILE GENERATION FUNCTIONS and OBJECT
+
+class ReceiptObj {
+
+}
+
+class ReceiptItem {
+    constructor(name, uPrice, qty, totalPrice){
+        this.name = name;
+        this.uPrice = uPrice;
+        this.qty = qty;
+        this.totalPrice = totalPrice;
+    }
+}
+
+const downloadHandler = () => {
+    const fileName = 'Receipt-' + receiptCounter.toString();
+    const fileExtension = 'srec';
+    var content = '';
+
+
+    //Fetch data into Object
+
+    //Encode data into file
+
+    //Download File    
+    downloadFile(fileName,content, fileExtension);
+};
+
+const downloadFile = (fileName,content,extension) => {
     const text = content ;
     const element = document.createElement('a');
     const mimeType = 'application/octect-stream';
