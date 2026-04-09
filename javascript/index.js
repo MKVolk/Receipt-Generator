@@ -15,8 +15,10 @@ const setData = () => {
 const clearItems = () => {
     for(let i =0; i < itemCounter; i++){
         var item = document.getElementById('item-' + i.toString());
+        if(item){
+            item.remove();
+        }
         console.log('Item: ' + 'item-' + i.toString() + ' cleared'); //DEBUG
-        item.remove();
     }
     console.log('All Items Cleared'); //DEBUG
 };
