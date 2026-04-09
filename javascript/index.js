@@ -86,7 +86,7 @@ const calcTotal = () => {
     const salesTax = document.getElementById('sales_tax').value || 0;
     const subTotal = document.getElementById('sub_total').value || 0;
 
-    const total = salesTax + subTotal;
+    var total = salesTax + subTotal;
 
     field.value = total.toFixed(2);
 
