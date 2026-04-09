@@ -116,7 +116,7 @@ item{
 
 input{
     border-radius: 5px;
-    border-style: none;
+    border-style: solid;
 }
 
 /* Content */
