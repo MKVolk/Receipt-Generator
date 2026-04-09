@@ -226,6 +226,10 @@ footer {
     justify-content: space-between;
 }
 
+textarea{
+    font-family: 'Courier New', Courier, monospace;
+}
+
 /* Mobile */
 @media screen and (max-width: 770px){
     header{
