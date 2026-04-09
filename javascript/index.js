@@ -83,8 +83,8 @@ const calcSaleTax = () =>{
 
 const calcTotal = () => {
     const field = document.getElementById('total');
-    const salesTax = document.getElementById('sales_tax').value || 0;
-    const subTotal = document.getElementById('sub_total').value || 0;
+    const salesTax = parseFloat(document.getElementById('sales_tax').value) || 0;
+    const subTotal = parseFloat(document.getElementById('sub_total').value) || 0;
 
     var total = salesTax + subTotal;
     console.log('TOTAL:' + total.toString()); //debug
