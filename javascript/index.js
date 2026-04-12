@@ -55,7 +55,9 @@ const calcTotal = () => {
     const salesTax = parseFloat(document.getElementById('sales_tax').value) || 0;
     const subTotal = parseFloat(document.getElementById('sub_total').value) || 0;
 
-    var total = salesTax + subTotal;
+    const tip = parseFloat(document.getElementById('custom_tip').value) || 0; // Add Tip
+
+    var total = salesTax + subTotal + tip;
     console.log('TOTAL:' + total.toString()); //debug
 
     field.value = total.toFixed(2);
