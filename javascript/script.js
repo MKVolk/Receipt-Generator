@@ -8,7 +8,7 @@ function handleLogin(){
         localStorage.setItem("userphone", phone);
     
     if (role === "merchant"){
-        window.location.href = "merchant_generator.uml";
+        window.location.href = "index.html";
 
     }
     else{
