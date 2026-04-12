@@ -226,11 +226,11 @@ const generationHandler = () => {
     const store = document.getElementById('store_name')?.value || '';
     const date = document.getElementById('date')?.value || '';
 
-    const subtotal = parseFloat(document.getElementById('subtotal')?.textContent || '0');
-    const tax = parseFloat(document.getElementById('sales_tax')?.textContent || '0');
-    const total = parseFloat(document.getElementById('total')?.textContent || '0');
+    const subtotal = parseFloat(document.getElementById('sub_total')?.value || '0');
+    const tax = parseFloat(document.getElementById('sales_tax')?.value || '0');
+    const total = parseFloat(document.getElementById('total')?.value || '0');
 
-    const tip = 0.00; // no tip field provided, defaulting
+    const tip = parseFloat(document.getElementById('custom_tip')?.value || '0');
 
     // START RECEIPT
     text += `RECEIPT {\n`;
