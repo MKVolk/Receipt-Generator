@@ -204,7 +204,8 @@ const generateReceipt = () => {
     const genLang = generationHandler();
     //Display text
     const langBox = document.getElementById('lang_box');
-    langBox.textContent = genLang;
+    langBox.value = genLang;
+    console.log("generateReceipt()" + genLang); //DEBUG
 };
 
 
@@ -213,7 +214,7 @@ const downloadFile = () => {
     const fileExtension = 'srec';
 
     //Fetch data from lang_box into content
-    const content = document.getElementById('lang_box').textContent;
+    const content = document.getElementById('lang_box').value;
 
     //Download File    
     downloadHandler(fileName,content, fileExtension);
@@ -269,6 +270,7 @@ const generationHandler = () => {
     text += `  TOTAL: ${total.toFixed(2)}\n`;
     text += `}`;
 
+    console.log("generationHandler() executed" + text); //DEBUG
     return text;
 };
 
