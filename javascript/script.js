@@ -22,3 +22,23 @@ else {
 function handleSignup(){
     alert("we will add a signup page as we update the app")
 }
+function parseReciept(receiptLang){
+const lines = recieptLang.split('\n');
+let subtotal= 0;
+let tips = 0;
+lines.forEach(line =>{
+if (line.includes("PRICE")){
+const price = parseFloat(line.match(/PRICE (\d+\.\d+)/)[1]);
+const qty = parseInt(line.match(/QTY (\d+)/)[1]);
+subtotal += (price * qty);
+}
+})
+if (line.includes("TIPS")){
+const tax = parseFloat(line.match(/TAX (\d+\.\d+)/)[1]);
+return {
+        total: subtotal + tax + tip,
+        taxAndTips: tax + tip
+    };
+
+
+}
